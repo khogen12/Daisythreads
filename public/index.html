@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daisy Threads | Clothes &amp; Earrings</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Fraunces:ital,wght@0,600;1,500&family=Poppins:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#FFF9EE;--surface:#FFFFFF;--ink:#1F3A2B;--muted:#4F6657;--line:#EADFC6;--terra:#B5472E;
+--green:#2F5D43;--yellow:#F5C842;--blush:#F7D6D0;--sage:#CFE3D3;--dk:#1F3A2B;--cream:#FFF4DC;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#14211A;--surface:#1E3026;--ink:#FFF4DC;--muted:#BFD0C2;--line:#34503F}}
+:root[data-theme="dark"]{--bg:#14211A;--surface:#1E3026;--ink:#FFF4DC;--muted:#BFD0C2;--line:#34503F}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Poppins',system-ui,sans-serif;line-height:1.6;font-size:16px}
+a{color:inherit}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:600;margin:0}
+.script{font-family:'Mrs Saint Delafield','Brush Script MT',cursive;font-weight:400}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.bar{background:var(--yellow);color:var(--dk);text-align:center;font-size:13px;font-weight:600;letter-spacing:1px;padding:10px 16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo .script{font-size:42px;line-height:1;color:var(--green)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .logo .script{color:var(--yellow)}}
+nav{display:flex;gap:2px;flex-wrap:wrap}
+nav a{font-size:12.5px;font-weight:600;letter-spacing:1.5px;text-decoration:none;padding:0 12px;min-height:44px;display:inline-flex;align-items:center}
+nav a:hover{color:var(--terra)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:999px;font-weight:600;font-size:14px;letter-spacing:.8px;text-decoration:none;border:2px solid var(--terra);cursor:pointer;background:transparent;color:var(--ink)}
+.btn.main{background:var(--terra);color:#fff}
+.btn:focus-visible,nav a:focus-visible,.chip:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.hero{background:var(--green);color:var(--cream);border-radius:0 0 48px 48px;overflow:hidden}
+.hero .in{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;padding:36px 20px 52px;max-width:1040px;margin:0 auto}
+@media(min-width:760px){.hero .in{grid-template-columns:1.2fr .8fr;padding:56px 20px 64px}}
+.eyebrow{font-size:12px;letter-spacing:5px;font-weight:600;color:var(--yellow)}
+.hero h1{font-size:clamp(38px,8vw,64px);line-height:1.05;margin:10px 0 14px}
+.hero h1 em{color:var(--yellow);font-style:italic}
+.hero p{margin:0 0 26px;max-width:460px;color:#E4EEDD}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .btn:not(.main){border-color:var(--cream);color:var(--cream)}
+.hero .btn.main{background:var(--yellow);border-color:var(--yellow);color:var(--dk)}
+.art{justify-self:center;width:min(280px,72vw)}
+.strip{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;padding:18px 20px;font-size:12px;letter-spacing:3px;font-weight:600;color:var(--muted)}
+section{padding:44px 0}
+h2{font-size:clamp(28px,5vw,40px);margin-bottom:6px}
+.sub{color:var(--muted);margin:0 0 26px}
+.cats{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:620px){.cats{grid-template-columns:1fr 1fr}}
+.cat{position:relative;overflow:hidden;border-radius:28px;padding:26px 24px;min-height:170px;text-decoration:none;color:var(--dk);display:flex;flex-direction:column;justify-content:flex-end}
+.cat h3{font-size:34px}.cat span{font-size:14px}
+.cat svg{position:absolute;right:-18px;top:-18px;opacity:.95}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.chip{font-family:inherit;font-size:13px;font-weight:600;letter-spacing:1px;min-height:44px;padding:0 22px;border-radius:999px;border:2px solid var(--green);background:transparent;color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--green);color:#fff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chip{border-color:var(--yellow)}:root:not([data-theme="light"]) .chip[aria-pressed="true"]{background:var(--yellow);color:var(--dk)}}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);gap:22px}}
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:22px;padding:10px 10px 16px;display:flex;flex-direction:column;gap:4px}
+.card[hidden]{display:none}
+.ph{aspect-ratio:4/5;border-radius:999px 999px 14px 14px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;padding-bottom:14px;color:var(--dk)}
+.ph small{font-size:10.5px;letter-spacing:1.5px;font-weight:600}
+.card h3{font-size:18px;margin:8px 6px 0}.price{font-weight:600;font-size:14px;color:var(--terra);margin:0 6px}
+.card .btn{min-height:44px;padding:0 14px;font-size:12.5px;margin:8px 6px 0}
+.ticket{position:relative;background:var(--yellow);color:var(--dk);border-radius:22px;padding:30px 22px;text-align:center}
+.ticket:before,.ticket:after{content:"";position:absolute;top:50%;width:30px;height:30px;margin-top:-15px;border-radius:50%;background:var(--bg)}
+.ticket:before{left:-15px}.ticket:after{right:-15px}
+.code{display:inline-block;margin:12px 0 6px;border:2px dashed var(--dk);border-radius:12px;padding:6px 24px;font-weight:700;font-size:32px;letter-spacing:7px}
+.ticket .btn{border-color:var(--dk);color:var(--dk);margin-top:8px}
+.about{display:grid;gap:18px;grid-template-columns:1fr;align-items:center}
+@media(min-width:760px){.about{grid-template-columns:.9fr 1.1fr}}
+.about .script{font-size:58px;line-height:1;color:var(--terra)}
+.about p{color:var(--muted);margin:0 0 12px}
+footer{background:var(--green);color:var(--cream);border-radius:48px 48px 0 0;margin-top:30px;padding:40px 0 44px;text-align:center}
+footer .script{font-size:48px;line-height:1;color:var(--yellow)}
+footer p{margin:6px 0;color:#E4EEDD}
+footer .btn{background:var(--yellow);border-color:var(--yellow);color:var(--dk);margin-top:14px}
+.ph{overflow:hidden}.ph.has{padding:0}.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.box{background:var(--surface);border:1.5px solid var(--line);border-radius:22px;padding:20px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0}
+.f label{display:block;font-size:13px;font-weight:600;color:var(--muted)}
+.f input,.f textarea,.f select{width:100%;min-height:46px;font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:10px 14px;margin:4px 0 12px}
+.err{color:var(--terra);margin:6px 0}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="dz" viewBox="-50 -50 100 100"><g fill="#FFFDF6" stroke="#D9A92E" stroke-width="2"><ellipse cx="0" cy="-28" rx="9" ry="20"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(30)"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(60)"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(90)"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(120)"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(150)"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(180)"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(210)"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(240)"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(270)"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(300)"/><ellipse cx="0" cy="-28" rx="9" ry="20" transform="rotate(330)"/></g><circle r="13" fill="#F5A81C"/></symbol>
+</svg>
+<div class="bar">Get 10% off your next order with code DAISY10</div>
+<div class="wrap">
+<header>
+  <a class="logo" href="#top" aria-label="Daisy Threads home"><svg width="36" height="36" aria-hidden="true"><use href="#dz"/></svg><span class="script">Daisy Threads</span></a>
+  <nav aria-label="Main"><a href="#shop">SHOP</a><a href="#offer">10% OFF</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a><a href="#cart-s" id="cartlink">CART</a></nav>
+</header>
+</div>
+
+<div class="hero" id="top"><div class="in">
+  <div>
+    <div class="eyebrow">CLOTHES &amp; EARRINGS</div>
+    <h1>Dress up your day with a little <em>sunshine.</em></h1>
+    <p>Pretty clothes and earrings, picked with love and packed by hand for you.</p>
+    <div class="cta"><a class="btn main" href="#shop">Shop now</a><a class="btn" data-ig="dm" href="https://ig.me/m/daisythreads.store" target="_blank" rel="noopener">Order on Instagram</a></div>
+  </div>
+  <svg class="art" viewBox="0 0 210 300" role="img" aria-label="Arch with daisies">
+    <path d="M5,300 V105 A100,100 0 0 1 205,105 V300 Z" fill="#F5C842"/>
+    <path d="M25,300 V105 A80,80 0 0 1 185,105 V300 Z" fill="#F7D6D0"/>
+    <path d="M45,300 V105 A60,60 0 0 1 165,105 V300 Z" fill="#CFE3D3"/>
+    <path d="M65,300 V105 A40,40 0 0 1 145,105 V300 Z" fill="#FFF4DC"/>
+    <g stroke="#2F5D43" stroke-width="3" fill="none" stroke-linecap="round"><path d="M105 300 C100 250 88 210 84 160"/><path d="M105 300 C108 240 112 200 118 125"/><path d="M105 300 C118 255 130 225 134 185"/></g>
+    <g fill="#4E8A66"><ellipse cx="94" cy="240" rx="6" ry="16" transform="rotate(-28 94 240)"/><ellipse cx="118" cy="232" rx="6" ry="16" transform="rotate(30 118 232)"/><ellipse cx="100" cy="196" rx="6" ry="16" transform="rotate(-35 100 196)"/></g>
+    <use href="#dz" x="56" y="116" width="56" height="56"/><use href="#dz" x="86" y="84" width="64" height="64"/><use href="#dz" x="106" y="152" width="50" height="50"/>
+  </svg>
+</div></div>
+<div class="strip"><span>HANDPICKED</span><span>PACKED WITH LOVE</span><span>MADE WITH SUNSHINE</span></div>
+
+<div class="wrap">
+<section id="shop" aria-labelledby="shop-h">
+  <h2 id="shop-h">Shop by category</h2>
+  <p class="sub">Two little worlds, one daisy.</p>
+  <div class="cats">
+    <a class="cat" href="#items" data-go="clothes" style="background:var(--blush)"><svg width="120" height="120" aria-hidden="true"><use href="#dz"/></svg><h3>Clothes</h3><span>Easy, pretty outfits for every day</span></a>
+    <a class="cat" href="#items" data-go="earrings" style="background:var(--yellow)"><svg width="120" height="120" aria-hidden="true"><use href="#dz"/></svg><h3>Earrings</h3><span>Little details that finish the look</span></a>
+  </div>
+</section>
+
+<section id="items" aria-labelledby="items-h">
+  <h2 id="items-h">New arrivals</h2>
+  <p class="sub">Add your favourites to the cart and order in a minute.</p>
+  <div class="chips" role="group" aria-label="Filter products">
+    <button class="chip" data-f="all" aria-pressed="true">All</button>
+    <button class="chip" data-f="clothes" aria-pressed="false">Clothes</button>
+    <button class="chip" data-f="earrings" aria-pressed="false">Earrings</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="cart-s" aria-labelledby="cart-h"><h2 id="cart-h">Your cart</h2><div id="cart"><p class="sub">Your cart is empty. Add something pretty above.</p></div></section>
+
+<section id="offer" aria-labelledby="offer-h">
+  <div class="ticket">
+    <h2 id="offer-h">Get 10% off your next order</h2>
+    <div style="font-size:14px">Use this code at checkout. Valid for 30 days.</div>
+    <div class="code" id="code">DAISY10</div><br>
+    <button class="btn" id="copy" type="button">Copy code</button>
+  </div>
+</section>
+
+<section id="about" aria-labelledby="about-h">
+  <div class="about">
+    <div class="script" id="about-h" role="heading" aria-level="2">Made with love &amp; sunshine</div>
+    <div>
+      <p>Daisy Threads started as a small dream. Every outfit and every pair of earrings is picked with care, and every order is packed by hand so it feels like opening a gift.</p>
+      <p>Tag us in your photos and unboxing reels. We love seeing your style.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer id="contact"><div class="wrap">
+  <div class="script">Daisy Threads</div>
+  <p><a data-ig="profile" href="https://instagram.com/daisythreads.store" target="_blank" rel="noopener">Instagram: @daisythreads.store</a></p>
+  <p>#DaisyThreadsStyle</p>
+  <a class="btn" data-ig="dm" href="https://ig.me/m/daisythreads.store" target="_blank" rel="noopener">Message us to order</a>
+  <p style="font-size:13px;margin-top:22px">© Daisy Threads. All rights reserved.</p>
+</div></footer>
+
+<script>
+(function(){
+function $(s){return document.querySelector(s)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+var products=[],cart={},cfg={upi:'',whatsapp:'',coupon:'',percent:0,instagram:''},filter='all',applied=false,tints=['var(--blush)','var(--yellow)','var(--sage)'];
+function api(u,o){o=o||{};return fetch(u,{method:o.method||'GET',headers:{'Content-Type':'application/json'},body:o.body?JSON.stringify(o.body):undefined}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'Something went wrong');return j})})}
+function setIg(h){if(!h)return;document.querySelectorAll('[data-ig="dm"]').forEach(function(a){a.href='https://ig.me/m/'+h});document.querySelectorAll('[data-ig="profile"]').forEach(function(a){a.href='https://instagram.com/'+h;a.textContent='Instagram: @'+h})}
+function fmt(n){return '₹'+Math.round(n*100)/100}
+function find(id){return products.find(function(p){return p.id===id})}
+function subtotal(){return Object.keys(cart).reduce(function(t,id){var p=find(id);return t+(p?p.price*cart[id]:0)},0)}
+function total(){var t=subtotal();return applied?Math.round(t*(100-cfg.percent))/100:t}
+function setF(f){filter=f;document.querySelectorAll('.chips .chip').forEach(function(c){c.setAttribute('aria-pressed',c.dataset.f===f?'true':'false')});render()}
+function render(){
+  var list=products.filter(function(p){return filter==='all'||p.category===filter});
+  $('#grid').innerHTML=list.length?list.map(function(p,i){
+    var ph=p.image?'<div class="ph has"><img src="'+esc(p.image)+'" alt="'+esc(p.name)+'"></div>':'<div class="ph" style="background:'+tints[i%3]+'"><svg width="46" height="46" aria-hidden="true"><use href="#dz"/></svg><small>PHOTO SOON</small></div>';
+    return '<article class="card">'+ph+'<h3>'+esc(p.name)+'</h3><div class="price">'+fmt(p.price)+'</div><button class="btn main" data-add="'+esc(p.id)+'" type="button">Add to cart</button></article>';
+  }).join(''):'<p class="sub">New pieces are coming soon.</p>';
+}
+function drawCart(){
+  var ids=Object.keys(cart).filter(find);
+  var n=ids.reduce(function(t,id){return t+cart[id]},0);
+  $('#cartlink').textContent=n?'CART ('+n+')':'CART';
+  if(!ids.length){$('#cart').innerHTML='<p class="sub">Your cart is empty. Add something pretty above.</p>';return}
+  var lines=ids.map(function(id){var p=find(id);return '<div class="row"><span>'+esc(p.name)+' × '+cart[id]+'</span><span>'+fmt(p.price*cart[id])+' <button class="chip" data-rm="'+esc(id)+'" type="button">Remove</button></span></div>'}).join('');
+  $('#cart').innerHTML='<div class="box f">'+lines+
+   '<div class="row"><span>Coupon code</span><span><input id="cp" placeholder="DAISY10" value="'+(applied?esc(cfg.coupon):'')+'" style="width:130px;margin:0"> <button class="chip" id="ap" type="button">Apply</button></span></div>'+
+   (applied?'<div class="row"><span>'+cfg.percent+'% off applied</span><span>−'+fmt(subtotal()-total())+'</span></div>':'')+
+   '<div class="row"><b>Total</b><b>'+fmt(total())+'</b></div><p class="err" id="cerr"></p></div>'+
+   '<div class="box f" style="margin-top:16px"><label>Name<input id="n" autocomplete="name"></label><label>Phone<input id="ph" type="tel" autocomplete="tel"></label><label>Address<textarea id="ad" rows="3" autocomplete="street-address"></textarea></label>'+
+   '<label>Payment<select id="pm"><option value="cod">'+(cfg.codAdvance?'Cash on delivery (pay '+fmt(cfg.codAdvance)+' now, rest on delivery)':'Cash on delivery')+'</option>'+(cfg.upi?'<option value="upi">Pay by UPI</option>':'')+'</select></label><p class="err" id="er"></p><button class="btn main" id="place" type="button">Place order</button></div>';
+}
+function place(){
+  var items=Object.keys(cart).map(function(id){return{id:id,qty:cart[id]}}),method=$('#pm').value;
+  api('/api/orders',{method:'POST',body:{items:items,method:method,coupon:applied?cfg.coupon:'',name:$('#n').value.trim(),phone:$('#ph').value.trim(),address:$('#ad').value.trim()}}).then(function(r){
+    cart={};applied=false;$('#cartlink').textContent='CART';
+    var link='upi://pay?pa='+cfg.upi+'&pn='+encodeURIComponent('Daisy Threads')+'&am='+r.advance+'&cu=INR&tn='+r.id;
+    var pay=r.advance>0?'<p>Pay '+fmt(r.advance)+' now'+(r.balance>0?' to confirm your order. Balance '+fmt(r.balance)+' on delivery.':'.')+'<br><a href="'+esc(link)+'">Open UPI app</a> · UPI ID: '+esc(cfg.upi)+'</p><img src="/api/qr?data='+encodeURIComponent(link)+'" width="220" height="220" alt="UPI payment QR code"><p class="sub">Scan with any UPI app, then send the payment screenshot on WhatsApp.</p>':'<p>You pay when your order arrives.</p>';
+    var msg=encodeURIComponent('Hi Daisy Threads, I placed order '+r.id+' for '+fmt(r.total)+'.');
+    var wa=cfg.whatsapp?'<a class="btn" href="https://wa.me/'+esc(cfg.whatsapp)+'?text='+msg+'" target="_blank" rel="noopener">Message us on WhatsApp</a>':'';
+    $('#cart').innerHTML='<div class="box"><h3>Thank you! Order '+esc(r.id)+' placed</h3><p>Total: '+fmt(r.total)+'</p>'+pay+wa+'</div>';
+  }).catch(function(e){$('#er').textContent=e.message});
+}
+document.addEventListener('click',function(e){
+  var t=e.target.closest('button,a');if(!t)return;
+  if(t.dataset.add){cart[t.dataset.add]=(cart[t.dataset.add]||0)+1;drawCart();$('#cart-s').scrollIntoView({behavior:'smooth'})}
+  else if(t.dataset.rm){delete cart[t.dataset.rm];drawCart()}
+  else if(t.id==='ap'){var v=$('#cp').value.trim().toUpperCase();if(v&&v===cfg.coupon){applied=true;drawCart()}else{applied=false;$('#cerr').textContent='This code is not valid.'}}
+  else if(t.id==='place')place();
+  else if(t.dataset.f)setF(t.dataset.f);
+  else if(t.dataset.go)setF(t.dataset.go);
+  else if(t.id==='copy'){var c=$('#code').textContent;function done(){t.textContent='Copied ✓';setTimeout(function(){t.textContent='Copy code'},2000)}try{navigator.clipboard.writeText(c).then(done,function(){t.textContent='Code: '+c})}catch(x){t.textContent='Code: '+c}}
+});
+Promise.all([api('/api/config'),api('/api/products')]).then(function(r){cfg=r[0];products=r[1];setIg(cfg.instagram);render();drawCart()}).catch(function(){$('#grid').innerHTML='<p class="sub">Could not load products. Please refresh.</p>'});
+})();
+</script>
+</body>
+</html>

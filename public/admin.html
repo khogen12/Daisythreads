@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin | Daisy Threads</title>
+<style>
+:root{--bg:#FFF9EE;--surface:#fff;--ink:#1F3A2B;--muted:#4F6657;--line:#EADFC6;--terra:#B5472E;--green:#2F5D43}
+@media(prefers-color-scheme:dark){:root{--bg:#14211A;--surface:#1E3026;--ink:#FFF4DC;--muted:#BFD0C2;--line:#34503F}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,sans-serif}
+main{max-width:760px;margin:auto;padding:20px}h1,h2{font-family:Georgia,serif}
+.box{background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:16px;margin:14px 0}
+.row{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0}
+input,select{width:100%;min-height:44px;font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:8px 12px;margin:4px 0 10px}
+button{min-height:44px;padding:0 20px;border-radius:999px;border:2px solid var(--terra);background:var(--terra);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+button.g{background:transparent;color:var(--terra)}
+.err{color:var(--terra)}.m{color:var(--muted)}
+</style></head><body><main id="app"></main>
+<script>
+var token='';try{token=localStorage.getItem('adm')||''}catch(e){}
+var $=function(s){return document.querySelector(s)};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function api(u,o){o=o||{};return fetch(u,{method:o.method||'GET',headers:{'Content-Type':'application/json','x-admin':token},body:o.body?JSON.stringify(o.body):undefined}).then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'Error');return j})})}
+function logout(){token='';try{localStorage.removeItem('adm')}catch(e){}view()}
+function view(){
+  if(!token){$('#app').innerHTML='<h1>Admin login</h1><div class="box"><input id="pw" type="password" placeholder="Password" autocomplete="current-password"><p class="err" id="er"></p><button id="login">Log in</button></div>';return}
+  Promise.all([api('/api/products'),api('/api/admin/orders'),api('/api/config')]).then(function(r){
+    var p=r[0],o=r[1];
+    $('#app').innerHTML='<h1>Daisy Threads admin</h1><p><a href="/">View shop</a></p>'+
+    '<h2>Instagram</h2><div class="box"><input id="ig" placeholder="@username or Instagram link" value="'+esc(r[2].instagram)+'"><p class="m" id="igs"></p><button id="saveig">Save</button></div>'+
+    '<h2>Add product</h2><div class="box"><input id="pn" placeholder="Product name"><input id="pp" type="number" min="1" placeholder="Price in ₹"><select id="pc"><option value="clothes">Clothes</option><option value="earrings">Earrings</option></select><label class="m">Photo<input id="pf" type="file" accept="image/*"></label><input id="pi" placeholder="or paste an image link (optional)"><p class="m" id="up"></p><p class="err" id="er"></p><button id="addp">Add product</button></div>'+
+    '<h2>Products</h2><div class="box">'+(p.map(function(x){return '<div class="row"><span>'+esc(x.name)+' · ₹'+x.price+' · '+esc(x.category||'')+'</span><button class="g" data-del="'+esc(x.id)+'">Delete</button></div>'}).join('')||'<span class="m">No products yet.</span>')+'</div>'+
+    '<h2>Orders</h2>'+(o.map(function(x){return '<div class="box"><div class="row"><b>'+esc(x.id)+' · ₹'+x.total+' · '+esc(x.method.toUpperCase())+(x.coupon?' · '+esc(x.coupon):'')+(x.advance?' · Advance ₹'+x.advance+', Balance ₹'+x.balance:'')+'</b><select data-st="'+esc(x.id)+'" style="width:auto;margin:0">'+['New','Paid','Shipped','Delivered','Cancelled'].map(function(s){return '<option'+(s===x.status?' selected':'')+'>'+s+'</option>'}).join('')+'</select></div><div>'+esc(x.name)+' · <a href="tel:'+esc(x.phone)+'">'+esc(x.phone)+'</a></div><div class="m">'+esc(x.address)+'</div><div>'+x.items.map(function(i){return esc(i.name)+' × '+i.qty}).join(', ')+'</div></div>'}).join('')||'<p class="m">No orders yet.</p>')+
+    '<h2>Shop QR code</h2><div class="box"><img src="/api/qr?data='+encodeURIComponent(location.origin)+'" width="200" height="200" alt="Shop link QR code"><p class="m">Opens '+esc(location.origin)+'. Open this page from your live website address, then print the QR.</p></div><button class="g" id="logout">Log out</button>';
+  }).catch(logout);
+}
+document.addEventListener('click',function(e){
+  var t=e.target,d=t.dataset||{};
+  if(t.id==='login')api('/api/admin/login',{method:'POST',body:{password:$('#pw').value}}).then(function(r){token=r.token;try{localStorage.setItem('adm',token)}catch(x){}view()}).catch(function(x){$('#er').textContent=x.message});
+  else if(t.id==='addp')api('/api/admin/products',{method:'POST',body:{name:$('#pn').value.trim(),price:$('#pp').value,category:$('#pc').value,image:$('#pi').value.trim()}}).then(view).catch(function(x){$('#er').textContent=x.message});
+  else if(d.del)api('/api/admin/products/'+d.del,{method:'DELETE'}).then(view);
+  else if(t.id==='saveig')api('/api/admin/settings',{method:'POST',body:{instagram:$('#ig').value}}).then(function(r){$('#ig').value=r.instagram;$('#igs').textContent='Saved ✓'}).catch(function(x){$('#igs').textContent=x.message});
+  else if(t.id==='logout')logout();
+});
+function upload(f){
+  $('#up').textContent='Uploading...';
+  var img=new Image(),u=URL.createObjectURL(f);
+  img.onload=function(){var s=Math.min(1,1000/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext('2d').drawImage(img,0,0,c.width,c.height);URL.revokeObjectURL(u);
+    api('/api/admin/upload',{method:'POST',body:{data:c.toDataURL('image/jpeg',0.85)}}).then(function(r){$('#pi').value=r.url;$('#up').textContent='Photo uploaded ✓'}).catch(function(x){$('#up').textContent=x.message})};
+  img.onerror=function(){$('#up').textContent='Could not read this photo'};
+  img.src=u;
+}
+document.addEventListener('change',function(e){if(e.target.id==='pf'&&e.target.files[0]){upload(e.target.files[0]);return}if(e.target.dataset.st)api('/api/admin/orders/'+e.target.dataset.st,{method:'PATCH',body:{status:e.target.value}})});
+view();
+</script></body></html>
